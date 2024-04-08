@@ -14,27 +14,13 @@ def caesar_cipher(text, shift):
             result += char  # Keep non-alphabetic characters unchanged
     return result
 
-# Define a function to handle encryption/decryption and user interaction
-def cipher_interaction():
-    while True:
-        choice = input("Enter 'E' to encrypt, 'D' to decrypt, or 'Q' to quit: ").upper()
-        
-        if choice == 'Q':
-            print("Exiting the program...")
-            break
-        
-        text = input("Enter the text: ")
-        shift = int(input("Enter the shift value (positive for encryption, negative for decryption): "))
+# Get input from the user
+plaintext = input("Enter the text to be shifted: ")
 
-        if choice == 'E':
-            result = caesar_cipher(text, shift)
-            print("Encrypted text:", result)
-        elif choice == 'D':
-            result = caesar_cipher(text, -shift)  # Use negative shift for decryption
-            print("Decrypted text:", result)
-        else:
-            print("Invalid choice. Please enter 'E', 'D', or 'Q'.")
+# Encrypt the text with a right shift of 5
+shift = 5
+encrypted_text = caesar_cipher(plaintext, shift)
 
-# Call the function to start the interaction
-cipher_interaction()
-
+# Display the output
+print("Original text:", plaintext)
+print("Shifted text:", encrypted_text)
